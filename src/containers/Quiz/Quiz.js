@@ -73,7 +73,7 @@ class Quiz extends Component {
                 }
 
                 window.clearTimeout(timeOut)
-            }, 1000)
+            }, 500)
 
         } else {
             results[question.id] = 'error'
@@ -95,6 +95,10 @@ class Quiz extends Component {
             isFinished: false, 
             results: {}
         })
+    }
+
+    componentDidMount() {
+        
     }
 
     render() {
