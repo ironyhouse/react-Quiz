@@ -112,21 +112,28 @@ export function quizAnswerClick(answerId) {
             if (!results[question.id]) {
                 results[question.id] = 'success'
             }
-
             dispatch(quizSetState({[answerId]: 'success'}, results))
-
-            const timeOut = window.setTimeout(() => {
-                if (isQuizFinished(state)) {
-                    dispatch(FinishQuiz())
-                } else {
-                    dispatch(quizNextQuestion(state.activeQuestion + 1))
-                }
-                window.clearTimeout(timeOut)
-            }, 500)
+            // const timeOut = window.setTimeout(() => {
+            //     if (isQuizFinished(state)) {
+            //         dispatch(FinishQuiz())
+            //     } else {
+            //         dispatch(quizNextQuestion(state.activeQuestion + 1))
+            //     }
+            //     window.clearTimeout(timeOut)
+            // }, 500)
         } else {
             results[question.id] = 'error'
             dispatch(quizSetState({[answerId]: 'error'}, results))
         }
+
+        const timeOut = window.setTimeout(() => {
+            if (isQuizFinished(state)) {
+                dispatch(FinishQuiz())
+            } else {
+                dispatch(quizNextQuestion(state.activeQuestion + 1))
+            }
+            window.clearTimeout(timeOut)
+        }, 500)
     }
 }
 

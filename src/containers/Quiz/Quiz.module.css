@@ -15,3 +15,9 @@
 .QuizWrapper {
     width: 50vw;
 }
+
+@media (max-width: 600px) {
+    .QuizWrapper {
+        width: 90vw;
+    } 
+}
