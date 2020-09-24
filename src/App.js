@@ -19,6 +19,7 @@ class App extends Component {
 
     let routes = (
       <Switch>
+        <Route path="/react-quiz" component={QuizList} />
         <Route path="/auth" component={Auth} />
         <Route path="/quiz/:id" component={Quiz} />
         <Route path="/" exact component={QuizList} />
@@ -29,6 +30,7 @@ class App extends Component {
     if (this.props.isAuthenticated) {
       routes = (
         <Switch>
+          <Route path="/react-quiz" component={QuizList} />
           <Route path="/quiz-creator" component={QuizCreator} />
           <Route path="/quiz/:id" component={Quiz} />
           <Route path="/logout" component={Logout} />
